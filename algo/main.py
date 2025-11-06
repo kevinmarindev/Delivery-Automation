@@ -30,7 +30,7 @@
 
 from classes import Package, Hash_table, Truck
 from packages import deliveries
-from helpers import address_idx
+from helpers import address_idx, distance_matrix
 
 hash =  Hash_table()
 
@@ -43,15 +43,25 @@ truck3 = Truck(1, [2,5,7,8,10,11,17,21,22,23,24,26,27,33,35,39])
 
 def deliver(truck: Truck, start_address="4001 South 700 East"):
     starting_address = start_address
-    delivery_address = None
-    print("yes")
+    starting_address_idx = address_idx.index(starting_address)
+    print("starting idx", starting_address_idx)
+    # delivery_address = None
+    # print("yes")
+    min_distance = float("inf")
+    delivery_address_idx = None
     print(truck3.packages)
     for package_id in truck3.packages:
-        print("ok")
-        print(hash.get(package_id).address) 
-        # package_adress = hash[package_id]
-        # print(package_adress)
+        print("========")
+        package_address = hash.get(package_id).address
+        if(package_address is None): continue
+        package_idx = address_idx.index(package_address)
+        print("package id:",package_id, "package address idx:",package_idx, package_address)
+        print("distance to location", distance_matrix[starting_address_idx][package_idx])
+        distance_to_package = distance_matrix[starting_address_idx][package_idx]
+        if(distance_to_package < min_distance):
+            min_distance = distance_to_package
 
+    print("shortes distince", min_distance)
 
 
 deliver(truck3)
