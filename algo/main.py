@@ -48,25 +48,29 @@ def deliver(truck: Truck, start_address="4001 South 700 East"):
 
     while(len(truck.packages)):
         print("PACKAGES LEFT:", len(truck.packages))
+        print(truck.packages)
         up_next_location_idx = None
+        up_next_idx = None
         min_distance = float("inf")
+        print("Total distance traveled so far:", total_distance)
 
         for package_id in truck.packages:
             package_address = hash.get(package_id).address
 
             if(package_address is None): continue
-            up_next_location_idx = address_idx.index(package_address)
-            distance_to_package = distance_matrix[starting_address_idx][up_next_location_idx]
+            maybe = address_idx.index(package_address)
+            distance_to_package = distance_matrix[starting_address_idx][maybe]
 
             if(distance_to_package < min_distance):
                 min_distance = distance_to_package
-                up_next_idx = package_id
+                up_next_package_id = package_id
+                up_next_location_idx = maybe
 
         print("DONE LOOKING FOR CLOSEST PACKAGE")
         print("shortes distince", min_distance)
-        print("package idx", up_next_idx)
+        print("package ID:", up_next_package_id)
         total_distance += min_distance
-        truck.packages.remove(up_next_idx)
+        truck.packages.remove(up_next_package_id)
         min_distance = float("inf")
         starting_address_idx = up_next_location_idx
         print("\n")
