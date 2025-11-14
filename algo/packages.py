@@ -52,7 +52,7 @@ deliveries = [
     Package(6, "3060 Lester St", "10:30 AM", "West Valley City", "84119", 88.0, "awaiting"),
     Package(7, "1330 2100 S", "EOD", "Salt Lake City", "84106", 8.0, "at hub"),
     Package(8, "300 State St", "EOD", "Salt Lake City", "84103", 9.0, "at hub"),
-    Package(9, "300 State St", "EOD", "Salt Lake City", "84103", 2.0, "at hub"),
+    Package(9, "410 S State St", "EOD", "Salt Lake City", "84103", 2.0, "at hub"),
     Package(10, "600 E 900 South", "EOD", "Salt Lake City", "84105", 1.0, "at hub"),
     Package(11, "2600 Taylorsville Blvd", "EOD", "Salt Lake City", "84118", 1.0, "at hub"),
     Package(12, "3575 W Valley Central Station bus Loop", "EOD", "West Valley City", "84119", 1.0, "at hub"),

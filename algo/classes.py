@@ -42,7 +42,7 @@ class Package:
 
 
 class Truck:
-    def __init__(self, id, packages:[]=[], status="idle"):
+    def __init__(self, id, packages=[], status="idle"):
         self.id = id
         self.packages = packages
         self.status= status
