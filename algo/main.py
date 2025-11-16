@@ -90,6 +90,8 @@ def deliver(truck: Truck, start_address="4001 South 700 East", time=datetime.str
 
     print(truck.packages, len(truck.packages))
     print(total_distance)
+    print("DONE deliverting truck", truck.id)
 
 
-deliver(truck2, time=datetime.strptime("09:40", "%H:%M"))
+deliver(truck1, time=datetime.strptime("08:00", "%H:%M"))
+deliver(truck3, time=datetime.strptime("08:00", "%H:%M"))
