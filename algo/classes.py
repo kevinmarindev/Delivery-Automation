@@ -1,13 +1,11 @@
 from datetime import datetime, timedelta
 import math
-from helpers import address_idx, distance_matrix
 
 
 class Truck:
-    def __init__(self, id, packages=[], status="idle"):
+    def __init__(self, id, packages=[]):
         self.id = id
         self.packages = packages
-        self.status= status
         self.departure_time = None
 
 
