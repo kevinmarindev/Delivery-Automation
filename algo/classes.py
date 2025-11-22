@@ -1,14 +1,14 @@
 from datetime import datetime, timedelta
 import math
 
-
+# class to represent truck objects
 class Truck:
     def __init__(self, id, packages=[]):
         self.id = id
         self.packages = packages
         self.departure_time = None
 
-
+# custom class to represent a package
 class Package:
     def __init__(self, id, address, deadline, city, zip, weight, delivery_status=None, delivery_time:datetime=None, truck: Truck=None):
         self.id = id
@@ -21,7 +21,7 @@ class Package:
         self.delivery_time = delivery_time
         self.truck = truck
 
-
+#custom hash table class uses linear chaining to prevent hash collisions 
 class Hash_table:
     def __init__(self, hash_size=40):
         self.table = [[] for _ in range(hash_size)]
