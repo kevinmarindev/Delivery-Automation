@@ -55,7 +55,7 @@ class Hash_table:
 
 
 
-
+#Custom class that manages everything related to deliveries 
 class DeliveryManager:
     def __init__(self, hash_table, address_idx, distance_matrix):
         self.hash = hash_table
@@ -63,6 +63,7 @@ class DeliveryManager:
         self.distance_matrix = distance_matrix
         self.total_distance = 0.0
 
+    #starts deliveries for a specific truck
     def deliver(self, truck: Truck, start_address="4001 South 700 East", time=datetime.strptime("08:00", "%H:%M")):
         starting_address_idx = self.address_idx.index(start_address)
         truck.departure_time = time
@@ -99,13 +100,14 @@ class DeliveryManager:
         self.total_distance += total_distance
         return total_distance
     
+
+    #prints the total distance covered delivering all packages
     def total_distance_traveled(self):
         return self.total_distance
     
-
+    #prints the status of a package at a specific time
     def package_status_at_time(self, package_id: int, time: datetime):
         target_package = self.hash.get(package_id)
-        # print("Target package", target_package.delivery_time)
         if(target_package == None):
             print("Package not found.")
             return
@@ -118,7 +120,7 @@ class DeliveryManager:
             else:
                 print(f"Status: delivered at {target_package.delivery_time.strftime('%H:%M')}")
 
-    
+    #prints the statuses of all packages in each truck
     def all_package_statuses(self, query_time: datetime):
         print("package id 40:", self.hash.get(40).address)
         print(f"TRUCK 1 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")

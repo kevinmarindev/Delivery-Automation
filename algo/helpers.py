@@ -116,7 +116,3 @@ distance_matrix = [
     [3.6, 13.0, 7.4, 10.1, 5.5, 7.2, 14.2, 10.7, 14.1, 6.0, 6.8, 6.4, 14.1, 10.5, 8.8, 8.4, 13.6, 5.2, 6.9, 13.1, 4.1, 4.7, 3.1, 7.8, 1.3, 8.3, 0.0]
 ]
 
-# for index, value in enumerate(distance_matrix):
-#     print(index, len(value), value[0], value[26])
-
-
