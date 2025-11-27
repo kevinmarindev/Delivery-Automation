@@ -140,7 +140,7 @@ class DeliveryManager:
                 print("\n")
 
 
-
+#custom class that allows users to interact with the program main method serves as the entry point to the application
 class User_interface:
     def __init__(self, delivery_manager: DeliveryManager):
         self.total_distance = 0

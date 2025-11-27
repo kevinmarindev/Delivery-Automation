@@ -18,7 +18,7 @@ for package in deliveries:
 manager = DeliveryManager(hash, address_idx, distance_matrix)
 #set out trucks to deliver
 manager.deliver(truck1, time=datetime.strptime("08:00", "%H:%M"))
-#truck 2 does not leave until the driver of truck one returns to hub which is at 10:13
+    #truck 2 does not leave until the driver of truck one returns to hub which is at 10:13
 manager.deliver(truck2, time=datetime.strptime("10:13", "%H:%M"))
 manager.deliver(truck3, time=datetime.strptime("08:00", "%H:%M"))
 
