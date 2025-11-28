@@ -120,7 +120,7 @@ class DeliveryManager:
             if package and package.truck.id == 1:
                 print("Package ID:", package.id, package.address)
                 self.package_status_at_time(package.id, query_time)
-                print("\n")
+                # print("\n")
         
         
         print(f"TRUCK 2 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")
@@ -129,7 +129,7 @@ class DeliveryManager:
             if package and package.truck.id == 2:
                 print("Package ID:", package.id, package.address)
                 self.package_status_at_time(package.id, query_time)
-                print("\n")
+                # print("\n")
 
         print(f"TRUCK 3 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
@@ -137,7 +137,7 @@ class DeliveryManager:
             if package and package.truck.id == 3:
                 print("Package ID:", package.id, package.address)
                 self.package_status_at_time(package.id, query_time)
-                print("\n")
+                # print("\n")
 
 
 #custom class that allows users to interact with the program main method serves as the entry point to the application
