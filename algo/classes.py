@@ -147,12 +147,15 @@ class User_interface:
         self.delivery_manager = delivery_manager
 
     def main(self):
+        print("============================================")
         print("Welcome to the WGUPS package delivery system.")
+        print("============================================ \n")
+
         print("Select an option:")
         print("1. View package status at a specific time")
         print("2. View total mileage traveled by all trucks")
         print("3. View all package statuses")
-        print("4. Exit")
+        print("4. Exit", "\n")
 
         user_input = None
         while input != "4":
