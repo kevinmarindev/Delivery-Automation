@@ -122,7 +122,7 @@ class DeliveryManager:
                 self.package_status_at_time(package.id, query_time)
                 # print("\n")
         
-        
+        print("\n")
         print(f"TRUCK 2 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
@@ -130,7 +130,8 @@ class DeliveryManager:
                 print("Package ID:", package.id, package.address)
                 self.package_status_at_time(package.id, query_time)
                 # print("\n")
-
+                
+        print("\n")
         print(f"TRUCK 3 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
