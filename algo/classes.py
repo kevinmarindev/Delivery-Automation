@@ -114,7 +114,7 @@ class DeliveryManager:
     #prints the statuses of all packages in each truck
     def all_package_statuses(self, query_time: datetime):
         print("\n")
-        print(f"TRUCK 1 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")
+        print(f"TRUCK 1 PACKAGE STATUSES @ {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
             if package and package.truck.id == 1:
@@ -123,7 +123,7 @@ class DeliveryManager:
                 # print("\n")
         
         print("\n")
-        print(f"TRUCK 2 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")
+        print(f"TRUCK 2 PACKAGE STATUSES @ {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
             if package and package.truck.id == 2:
@@ -132,7 +132,7 @@ class DeliveryManager:
                 # print("\n")
 
         print("\n")
-        print(f"TRUCK 3 PACKAGE STATUSES @: {query_time.strftime('%H:%M')}")
+        print(f"TRUCK 3 PACKAGE STATUSES @ {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
             if package and package.truck.id == 3:
