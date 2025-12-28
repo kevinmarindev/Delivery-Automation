@@ -20,7 +20,7 @@ manager = DeliveryManager(hash, address_idx, distance_matrix)
 manager.deliver(truck1, time=datetime.strptime("08:00", "%H:%M"))
     #truck 2 does not leave until the driver of truck one returns to hub which is at 10:13
 manager.deliver(truck2, time=datetime.strptime("10:13", "%H:%M"))
-manager.deliver(truck3, time=datetime.strptime("08:00", "%H:%M"))
+manager.deliver(truck3, time=datetime.strptime("09:05", "%H:%M"))
 
 #give the user an interface to obtain delivery and package information
 User_interface(manager).main()

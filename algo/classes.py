@@ -24,6 +24,7 @@ class Package:
 #custom hash table class uses linear chaining to prevent hash collisions 
 class Hash_table:
     def __init__(self, hash_size=40):
+        #fill every slot in the table with an empty list
         self.table = [[] for _ in range(hash_size)]
         self.hash_size = hash_size
 
@@ -65,8 +66,12 @@ class DeliveryManager:
             up_next_package_id = None
             min_distance = float("inf")
 
-            for package_id in truck.packages:
+            for package_id in truck.packages:                    
                 package = self.hash.get(package_id)
+                if(package_id == 9 and time >= datetime.strptime("10:20", "%H:%M")):
+                    package.address = "410 S State St"
+                    package.zip = "84111"
+
                 if package.address is None:
                     continue
                 target_address = self.address_idx.index(package.address)
@@ -103,11 +108,11 @@ class DeliveryManager:
             print("Package not found.")
             return
         if(target_package.truck.departure_time is None or time < target_package.truck.departure_time):
-            print("Status: at the hub")
+            print("Status: at the hub,   Delivery Time: N/A")
 
         elif(time >= target_package.truck.departure_time):
             if(target_package.delivery_time is None or time < target_package.delivery_time):
-                print("Status: en route")
+                print("Status: en route", "  Delivery Time: N/A")
             else:
                 print(f"Status: delivered at {target_package.delivery_time.strftime('%H:%M')}")
 
@@ -118,27 +123,27 @@ class DeliveryManager:
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
             if package and package.truck.id == 1:
-                print("Package ID:", package.id, package.address)
+                print("\n", "  Package ID:",package.id, "  Package Address:",package.address, "  Deadline:",package.deadline, "  Truck ID:", package.truck.id)
                 self.package_status_at_time(package.id, query_time)
-                # print("\n")
         
         print("\n")
         print(f"TRUCK 2 PACKAGE STATUSES @ {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
             if package and package.truck.id == 2:
-                print("Package ID:", package.id, package.address)
+                if package.id == 9 and query_time < datetime.strptime("10:20", "%H:%M"):
+                    print("\n", "  Package ID:",package.id, "  Package Address:", "300 State St", "  Deadline:",package.deadline, "  Truck ID:", package.truck.id)
+                else:
+                    print("\n", "  Package ID:",package.id, "  Package Address:",package.address, "  Deadline:",package.deadline, "  Truck ID:", package.truck.id)
                 self.package_status_at_time(package.id, query_time)
-                # print("\n")
 
         print("\n")
         print(f"TRUCK 3 PACKAGE STATUSES @ {query_time.strftime('%H:%M')}")
         for i in range(1, self.hash.hash_size + 1):
             package = self.hash.get(i)
             if package and package.truck.id == 3:
-                print("Package ID:", package.id, package.address)
+                print("\n", "  Package ID:",package.id, "  Package Address:",package.address, "  Deadline:",package.deadline, "  Truck ID:", package.truck.id)
                 self.package_status_at_time(package.id, query_time)
-                # print("\n")
 
 
 #custom class that allows users to interact with the program main method serves as the entry point to the application
