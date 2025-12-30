@@ -108,7 +108,10 @@ class DeliveryManager:
             print("Package not found.")
             return
         if(target_package.truck.departure_time is None or time < target_package.truck.departure_time):
-            print("Status: at the hub,   Delivery Time: N/A")
+            if (target_package.id == 6 or target_package.id == 25 or target_package.id == 28 or target_package.id == 32) and time < datetime.strptime("09:05", "%H:%M"):
+                print("Status: awaiting package - delayed,   Delivery Time: N/A")
+            else:
+                print("Status: at the hub,   Delivery Time: N/A")
 
         elif(time >= target_package.truck.departure_time):
             if(target_package.delivery_time is None or time < target_package.delivery_time):
